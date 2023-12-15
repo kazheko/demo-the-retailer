@@ -1,10 +1,220 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid pb-3">
+    <div class="d-grid gap-3" style="grid-template-columns: 2fr 1fr 1fr;">
+        <div style="grid-row: 1/3;">
+            <div class="card text-bg-dark border-0">
+                <img src="img/sale.png" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex justify-content-center flex-column text-center">
+                    <h2 class="card-title fs-1">Sale</h2>
+                </div>
+            </div>
+        </div>
+        <div class="bg-body-tertiary border rounded-3">
+            <div class="card text-bg-dark border-0">
+                <img src="img/women-cat.png" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex justify-content-center flex-column text-center">
+                    <h2 class="card-title fs-1">Women</h2>
+                </div>
+            </div>
+        </div>
+        <div class="bg-body-tertiary border rounded-3">
+            <div class="card text-bg-dark border-0">
+                <img src="img/men-cat.png" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex justify-content-center flex-column text-center">
+                    <h2 class="card-title fs-1">Men</h2>
+                </div>
+            </div>
+        </div>
+        <div class="bg-body-tertiary border rounded-3">
+            <div class="card text-bg-dark border-0">
+                <img src="img/kids-cat.png" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex justify-content-center flex-column text-center">
+                    <h2 class="card-title fs-1">Kids</h2>
+                </div>
+            </div>
+        </div>
+        <div class="bg-body-tertiary border rounded-3">
+            <div class="card text-bg-dark border-0">
+                <img src="img/accessories-cat.png" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex justify-content-center flex-column text-center">
+                    <h2 class="card-title fs-1">Accessories</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<main>
+    <section class="container mt-5">
+        <h2 class="text-body-emphasis">Men's Latest</h2>
+        <p class="fs-5 text-body-secondary">Looking for something new? Discover emerging trends, the latest clothing for men</p>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide">
+            <div class="carousel-inner">
+                <div class="carousel-item" data-bs-interval="10000">
+                    <div class="d-grid gap-3" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+                        <div class="position-relative">
+                            <img src="img/men/trainers-s-0003.png" alt="shirt" />
+                            <p>Cord trainers in off white</p>
+                            <p>$90.00 <a href="catalog/details/1" class="stretched-link"></a></p>
+                        </div>
+                        <div class="position-relative">
+                            <img src="img/men/jumper-s-0001.png" alt="shoes" />
+                            <p>Textured knitted roll neck jumper in black</p>
+                            <p>£22.99<a href="/details" class="stretched-link"></a></p>
+                        </div>
+                        <div>
+                            <img src="img/men/t-shirts-s-0001.png" alt="t-shirt" />
+                            <p>T-shirt in black</p>
+                            <p>£6.99</p>
+                        </div>
+                        <div>
+                            <img src="img/men/shirts-s-0002.png" alt="t-shirt" />
+                            <p>Slim fit shirt in blue</p>
+                            <p>£45.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <div class="d-grid gap-3" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+                        <div>
+                            <img src="img/men/trainers-s-0001.png" alt="t-shirt" />
+                            <p>Old School trainers in black and white</p>
+                            <p>£65.00</p>
+                        </div>
+                        <div>
+                            <img src="img/men/waistcoat-s-0001.png" alt="t-shirt" />
+                            <p>Skinny suit waistcoat in dark blue</p>
+                            <p>£30.00</p>
+                        </div>
+                        <div>
+                            <img src="img/men/trousers-s-0001.png" alt="t-shirt" />
+                            <p>Slim washed chino in stone</p>
+                            <p>£25.00</p>
+                        </div>
+                        <div>
+                            <img src="img/men/shirts-s-0001.png" alt="shirt" />
+                            <p>Skinny fit shirt in white</p>
+                            <p>£20.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <section class="container mt-5">
+        <h2 class="text-body-emphasis">Women's Latest</h2>
+        <p class="fs-5 text-body-secondary">Stay ahead of the game with our ‘Women's Latest’ edit, featuring new women’s clothing and the latest fashion trends</p>
+        <div id="womenLatestCarousel" class="carousel carousel-dark slide">
+            <div class="carousel-inner">
+                <div class="carousel-item" data-bs-interval="10000">
+                    <div class="d-grid gap-3" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+                        <div>
+                            <img src="img/women/dress-s-0002.png" alt="shirt" />
+                            <p>Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                        <div>
+                            <img src="img/women/sunglasses-s-0001.png" alt="shoes" />
+                            <p>Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                        <div>
+                            <img src="img/women/jumpsuit-s-0001.png" alt="t-shirt" />
+                            <p>Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                        <div>
+                            <img src="img/women/coats-s-0001.png" alt="t-shirt" />
+                            <p>Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <div class="d-grid gap-3" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+                        <div>
+                            <img src="img/women/dress-s-0001.png" alt="t-shirt" />
+                            <p>Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                        <div>
+                            <img src="img/women/bag-s-0001.png" alt="t-shirt" />
+                            <p>Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                        <div>
+                            <img src="img/women/trousers-s-0002.png" alt="t-shirt" />
+                            <p>Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                        <div>
+                            <img src="img/women/watch-s-0001.png" alt="shirt" />
+                            <p>Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#womenLatestCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#womenLatestCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <div class="container px-4 py-5" id="featured-3">
+        <h2 class="pb-2 border-bottom">Our features</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col mt-0">
+                <div class="feature-icon d-inline-flex align-items-center fs-1 mb-3">
+                    <i class="bi bi-truck" style="color: #6995B1;"></i>
+                </div>
+                <h3 class="fs-2 text-body-emphasis">WORLDWIDE DELIVERY</h3>
+                <p>We use one of the world leading parcel delivery networks operating in nearly 50 countries.</p>
+                <a href="#" class="icon-link">
+                    Delivery options
+                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+            <div class="feature col mt-0">
+                <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-1 mb-3">
+                    <i class="bi bi-lock-fill" style="color: #6995B1;"></i>
+                </div>
+                <h3 class="fs-2 text-body-emphasis">SECURE PAYMENTS</h3>
+                <p>We provide only secure payment methods, and you can choose a method that suits you better.</p>
+                <a href="#" class="icon-link">
+                    Payment methods
+                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+            <div class="feature col mt-0">
+                <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-1 mb-3">
+                    <i class="bi bi-arrow-counterclockwise" style="color: #6995B1;"></i>
+                </div>
+                <h3 class="fs-2 text-body-emphasis">SIMPLE RETURNS</h3>
+                <p>We provides 60 days to return your parcel back to us from the date of delivery.</p>
+                <a href="#" class="icon-link">
+                    Return rules
+                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</main>
