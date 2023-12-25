@@ -1,0 +1,109 @@
+﻿@page
+@model Demo.TheRetailer.WebApp.Pages.Checkout.IndexModel
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<section class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+        </ol>
+    </nav>
+</section>
+<section class="container mt-5">
+    <div class="row g-5 justify-content-center">
+        <div class="col-md-4 col-lg-3 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Your cart</span>
+                <span class="badge bg-primary rounded-pill">1</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">Skinny fit shirt in white</h6>
+                        <small class="text-body-secondary">Brief description</small>
+                    </div>
+                    <span class="text-body-secondary">£18.99</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+                    <div>
+                        <h6 class="my-0">Standard Delivery</h6>
+                        <small>@DateTime.Now.AddDays(2).ToString("M") - @DateTime.Now.AddDays(3).ToString("M")</small>
+                    </div>
+                    <span class="text-body-secondary">£4.99</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total</span>
+                    <strong>£23.98</strong>
+                </li>
+            </ul>
+
+            <form class="card p-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Promo code">
+                    <button type="submit" class="btn btn-secondary">Redeem</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-5 col-lg-6 mb-5">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <span class="fw-bold me-5">Delivery Address&nbsp;</span><span class="ms-5">Plac Europejski 1, 00-839 Warszawa</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <span class="fw-bold me-5">Payment method</span><span class="ms-5">Paying with Mastercard/EuroCard 7184</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            <span class="fw-bold me-5">Delivery Options&nbsp;</span> <span class="ms-5">Standard Delivery</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                    </div>
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Standard Delivery (XYZ Carrier 2Day)</div>
+                                        Estimated between @DateTime.Now.AddDays(2).ToString("D")
+                                    </div>
+                                    <span>£4.99</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                    </div>
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Expedited Delivery(ABC Carrier Next Day)</div>
+                                        Estimated between @DateTime.Now.AddDays(1).ToString("D")
+                                    </div>
+                                    <span>£6.99</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Buy Now</button>
+        </div>
+    </div>
+</section>
