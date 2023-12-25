@@ -1,0 +1,268 @@
+﻿@page "{id}"
+@model Demo.TheRetailer.WebApp.Pages.Catalog.DetailsModel
+@{
+}
+<main>
+    <section class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Men</a></li>
+                <li class="breadcrumb-item"><a href="#">Shirts</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Skinny fit shirt in white</li>
+            </ol>
+        </nav>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-1">
+                    <img src="~/img/men/shirts-s-0001.png" alt="..." class="img-fluid" />
+                </div>
+                <div class="col-md-5">
+                    <img src="~/img/men/shirts-0001.jpg" alt="..." class="img-fluid" />
+                </div>
+                <div class="col-md-4">
+                    <h4>Skinny fit shirt in white</h4>
+                    <p class="lead">£20.00</p>
+                    <div class="alert alert-primary mb-5" role="alert">
+                        <i class="bi bi-tag" style="color: #6995B1;"></i> PSST! NEW HERE? Get 10% off almost everything!* With code: HIFRIEND
+                    </div>
+                    <div class="mb-3 row justify-content-center">
+                        <label for="selectSize" class="col-sm-2 col-form-label">Size</label>
+                        <div class="col-sm-6">
+                            <select class="form-select" aria-label="Default select example" id="selectSize">
+                                <option selected>Choose an option</option>
+                                <option value="1">Size S</option>
+                                <option value="2">Size M</option>
+                                <option value="3">Size L</option>
+                                <option value="4">Size XL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row justify-content-center">
+                        <label for="selectColor" class="col-sm-2 col-form-label">Color</label>
+                        <div class="col-sm-6">
+                            <select class="form-select" aria-label="Default select example" id="selectColor">
+                                <option value="1" selected>White</option>
+                                <option value="2">Gray</option>
+                                <option value="3">Red</option>
+                                <option value="4">Black</option>
+                                <option value="5">Blue</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-auto">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon1">
+                                    <i class="bi bi-dash"></i>
+                                </button>
+                                <input style="width: 40px;" type="text" class="form-control text-center" aria-label="Example text with button addon" aria-describedby="button-addon1" value="1">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                                    <i class="bi bi-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-outline-primary">ADD TO BAG</button>
+                        </div>
+                        <div class="col-auto">
+                            <a href="~/checkout" type="button" class="btn btn-outline-primary">BUY NOW</a>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <p>
+                                <i class="bi bi-truck fs-3 align-middle"></i> &nbsp;
+                                <a href="#" class="link-secondary link-offset-2 link-underline-opacity-75 link-underline-opacity-100-hover" data-bs-toggle="modal" data-bs-target="#exampleModal">Delivery Options</a>
+                            </p>
+                            <p class="mb-0">
+                                <i class="bi bi-arrow-counterclockwise fs-3 align-middle"></i> &nbsp;
+                                <a href="#" class="link-secondary link-offset-2 link-underline-opacity-75 link-underline-opacity-100-hover">Returns Rules</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Description
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Stretch, plain-woven fabric</p>
+                                    <p>Lining: 100% Polyester, Shell: 64% Polyester, 33% Viscose, 3% Elastane.</p>
+                                    <p>
+                                        Product Code: SHIRT-01
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Size & Fit
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>
+                                        Model's height: 189cm/6'2.5" <br />
+                                        Model is wearing: Size Medium
+                                    </p>
+                                    <p><strong>Sizing Help</strong></p>
+                                    <p>Still unsure what size to get? Find your recommended size</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                    Look After
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Dry clean only
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Additional information
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Suits by THE RETAILER</p>
+
+                                    <ul>
+                                        <li>For office, or out of office</li>
+                                        <li>V-neck</li>
+                                        <li>Button placket</li>
+                                        <li>Pocket details</li>
+                                        <li>Contrast back with an adjustable cinch</li>
+                                        <li>Super-skinny fit</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mt-5">
+        <h2 class="text-body-emphasis">Related Products </h2>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide">
+            <div class="carousel-inner">
+                <div class="carousel-item" data-bs-interval="10000">
+                    <div class="d-grid gap-3" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+                        <div class="position-relative">
+                            <img src="~/img/men/trainers-s-0003.png" alt="shirt" class="mb-2" />
+                            <p class="mb-2">Classic Spring</p>
+                            <p>$120.00 <a href="catalog/details/1" class="stretched-link"></a></p>
+                        </div>
+                        <div class="position-relative">
+                            <img src="~/img/men/jumper-s-0001.png" alt="shoes" class="mb-2" />
+                            <p> class="mb-2"Classic Spring</p>
+                            <p>$120.00 <a href="/details" class="stretched-link"></a></p>
+                        </div>
+                        <div>
+                            <img src="~/img/men/t-shirts-s-0001.png" alt="t-shirt" class="mb-2" />
+                            <p class="mb-2">Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                        <div>
+                            <img src="~/img/men/shirts-s-0002.png" alt="t-shirt" class="mb-2" />
+                            <p class="mb-2">Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <div class="d-grid gap-3" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+                        <div>
+                            <img src="~/img/men/trainers-s-0001.png" alt="t-shirt" class="mb-2" />
+                            <p class="mb-2">Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                        <div>
+                            <img src="~/img/men/waistcoat-s-0001.png" alt="t-shirt" class="mb-2" />
+                            <p class="mb-2">Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                        <div>
+                            <img src="~/img/men/trousers-s-0001.png" alt="t-shirt" class="mb-2" />
+                            <p class="mb-2">Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                        <div>
+                            <img src="~/img/men/shirts-s-0001.png" alt="shirt" class="mb-2" />
+                            <p class="mb-2">Classic Spring</p>
+                            <p>$120.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delivery options</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Delivery options and delivery speeds may vary for different locations</p>
+                    <div class="d-grid gap-2">
+                        <a href="#" class="btn btn-outline-primary">Sign in to see your addresses</a>
+                    </div>
+                    <p class="fs-4 mb-2 mt-3 text-center">or enter a postcode</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Postcode" aria-label="Postcode" aria-describedby="button-addon2">
+                        <button class="btn btn-warning" type="button" id="button-addon2">Apply</button>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Standard Shipping (ABC Carrier 2Day)</div>
+                                Estimated between @DateTime.Now.AddDays(2).ToString("D")
+                            </div>
+                            <span>£4.99</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Expedited Shipping(XYZ Carrier Next Day)</div>
+                                Estimated between @DateTime.Now.AddDays(1).ToString("D")
+                            </div>
+                            <span>£6.99</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
