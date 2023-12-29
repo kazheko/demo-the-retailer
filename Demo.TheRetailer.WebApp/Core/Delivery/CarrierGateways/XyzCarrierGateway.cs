@@ -10,14 +10,18 @@ namespace Demo.TheRetailer.WebApp.Core.Delivery.CarrierGateways
             {
                 new DeliveryOption
                 {
-                    CarrierService = "Standard Delivery (XYZ Carrier 2Day)",
+                    Carrier = "XYZ Carrier",
+                    CarrierService = "2Day",
+                    DeliveryType = DeliveryType.StandardDelivery,
                     Cost = 4.99m,
                     MaxTransitTime = 2,
                     MinTransitTime = 3
                 },
                 new DeliveryOption
                 {
-                    CarrierService = "Expedited Delivery (XYZ Carrier Next Day)",
+                    Carrier = "XYZ Carrier",
+                    CarrierService = "Next Day",
+                    DeliveryType = DeliveryType.ExpeditedDelivery,
                     Cost = 7.99m,
                     MaxTransitTime = 1,
                     MinTransitTime = 1
