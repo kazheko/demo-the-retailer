@@ -4,6 +4,6 @@ namespace Demo.TheRetailer.WebApp.Core.Delivery
 {
     public interface IProvideDeliveryOptions
     {
-        IEnumerable<DeliveryOption> Get(string originPostcode, string destinationPostcode, DateTime shippingDate);
+        Task<IEnumerable<DeliveryOption>> GetAsync(string destinationPostcode);
     }
 }

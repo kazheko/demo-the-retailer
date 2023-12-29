@@ -1,21 +1,24 @@
-﻿using Demo.TheRetailer.WebApp.Models;
+﻿using Demo.TheRetailer.WebApp.Core.Delivery.CarrierGateways;
+using Demo.TheRetailer.WebApp.Models;
 
 namespace Demo.TheRetailer.WebApp.Core.Delivery
 {
-    public class DeliveryOptionsProvider
+    public class DeliveryOptionsProvider : IProvideDeliveryOptions
     {
-        private readonly IEnumerable<IProvideDeliveryOptions> _providers;
+        private const string StorePostcode = "M1 4ET";
 
-        public DeliveryOptionsProvider(IEnumerable<IProvideDeliveryOptions> providers)
+        private readonly IEnumerable<ICarrierGateway> _providers;
+
+        public DeliveryOptionsProvider(IEnumerable<ICarrierGateway> providers)
         {
             _providers = providers;
         }
 
-        public IEnumerable<DeliveryOption> GetDeliveryOptions(string originPostcode, string destinationPostcode, DateTime shippingDate)
+        public async Task<IEnumerable<DeliveryOption>> GetAsync(string destinationPostcode)
         {
-            var allOptions = _providers.AsParallel()
-                .SelectMany(x => x.Get(originPostcode, destinationPostcode, shippingDate))
-                .ToList();
+            var collectionDate = DateTime.Now;
+
+            var allOptions = await GetAllOptions(StorePostcode, destinationPostcode, collectionDate);
 
             var options = new[]
             {
@@ -23,21 +26,37 @@ namespace Demo.TheRetailer.WebApp.Core.Delivery
                 GetExpeditedOption(allOptions)
             };
 
-            return options
-                .OfType<DeliveryOption>();
+            return options.OfType<DeliveryOption>();
+        }
+
+        private async Task<IList<DeliveryOption>> GetAllOptions(string originalPostcode, string destinationPostcode, DateTime collectionDate)
+        {
+            var tasks = _providers.Select(x => x.GetAsync(originalPostcode, destinationPostcode, collectionDate));
+
+            var options = await Task.WhenAll(tasks);
+
+            return options.SelectMany(x => x).ToList();
         }
 
         private static DeliveryOption? GetCheapestOption(IEnumerable<DeliveryOption> options)
         {
-            return options.MinBy(x => x.Cost);
+            var option = options.MinBy(x => x.Cost);
+
+            option?.AsStandardDelivery();
+
+            return option;
         }
 
         private static DeliveryOption? GetExpeditedOption(IEnumerable<DeliveryOption> options)
         {
-            return options
-                .OrderBy(x=>x.MinTransitTime)
-                .ThenBy(x=>x.MaxTransitTime)
+            var option = options
+                .OrderBy(x => x.MinTransitTime)
+                .ThenBy(x => x.MaxTransitTime)
                 .FirstOrDefault();
+
+            option?.AsExpeditedDelivery();
+
+            return option;
         }
     }
 }
