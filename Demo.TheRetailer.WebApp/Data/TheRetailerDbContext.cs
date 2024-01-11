@@ -10,7 +10,8 @@ namespace Demo.TheRetailer.WebApp.Data
 
         public string DbPath { get; }
 
-        public TheRetailerDbContext()
+        public TheRetailerDbContext(DbContextOptions<TheRetailerDbContext> options)
+            : base(options)
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
@@ -26,6 +27,10 @@ namespace Demo.TheRetailer.WebApp.Data
                 new User
                 {
                     Id = 1,
+                    Email = "john.doe@hey.com",
+                    EmailConfirmed = true,
+                    Name = "John Doe",
+                    Password = "***"
                 }
             );
 
@@ -38,7 +43,9 @@ namespace Demo.TheRetailer.WebApp.Data
                     AddressLine1 = "Plac Europejski 1",
                     Postcode = "00-839",
                     Default = true,
-                    UserId = 1 
+                    UserId = 1,
+                    FullName = "John Doe",
+                    Phone = "1234567"
                 }
             );
 
@@ -49,7 +56,10 @@ namespace Demo.TheRetailer.WebApp.Data
                     CardNumber = "7184 7184 7184 7184",
                     Alias = "Mastercard/EuroCard",
                     Default = true,
-                    UserId = 1
+                    UserId = 1,
+                    ExpirationDate = DateTime.Now.AddMonths(10),
+                    NameOnCard = "John Doe",
+                    SecurityCode = "***"
                 }
             );
         }
