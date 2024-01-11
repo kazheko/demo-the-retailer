@@ -2,6 +2,9 @@
 @model Demo.TheRetailer.WebApp.Pages.Checkout.IndexModel
 @{
     ViewData["Title"] = "Checkout";
+
+    var defaultAddress = Model.ShippingAddresses.FirstOrDefault(x => x.Default);
+    var defaultPaymentMethod = Model.PaymentMethods.FirstOrDefault(x => x.Default);
 }
 
 <section class="container">
@@ -51,22 +54,54 @@
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            <span class="fw-bold me-5">Delivery Address&nbsp;</span><span class="ms-5">Plac Europejski 1, 00-839 Warszawa</span>
+                        <button class="accordion-button collapsed @(defaultAddress != null ? string.Empty : "show")" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <span class="fw-bold me-5">Delivery Address&nbsp;</span>
+                            @if (defaultAddress != null)
+                            {
+                                <span class="ms-5">@defaultAddress.AddressLine1, @defaultAddress.Postcode @defaultAddress.City</span>
+                            }
                         </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                        @foreach (var shippingAddress in Model.ShippingAddresses)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" asp-for="ShippingAddress" value="@shippingAddress.Id" checked>
+                                </div>
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">@shippingAddress.AddressLine1</div>
+                                    @shippingAddress.FullName, @shippingAddress.Postcode, @shippingAddress.City, @shippingAddress.Country
+                                </div>
+                            </li>
+                        }
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            <span class="fw-bold me-5">Payment method</span><span class="ms-5">Paying with Mastercard/EuroCard 7184</span>
+                        <button class="accordion-button collapsed @(defaultPaymentMethod != null ? string.Empty : "show")" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <span class="fw-bold me-5">Payment method</span>
+                            @if (defaultPaymentMethod != null)
+                            {
+                                <span class="ms-5">Paying with @defaultPaymentMethod.Alias @defaultPaymentMethod.CardNumber.Split(' ').Last()</span>
+                            }
                         </button>
                     </h2>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                        <ul class="list-group">
+                            @foreach (var paymentMethod in Model.PaymentMethods)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" asp-for="PaymentMethod" value="@paymentMethod.Id" checked>
+                                    </div>
+                                    <div class="ms-2 me-auto">
+                                        <div><span class="fw-bold">@paymentMethod.Alias</span> ending in @paymentMethod.CardNumber.Split(' ').Last()</div>
+                                        @paymentMethod.NameOnCard, @paymentMethod.ExpirationDate.ToString("MM/yyyy")
+                                    </div>
+                                </li>
+                            }
+                        </ul>
                     </div>
                 </div>
                 <div class="accordion-item">

@@ -6,7 +6,7 @@
         public string CardNumber { get; set; }
         public string Alias { get; set; }
         public string NameOnCard { get; set; }
-        public string ExpirationDate { get; set;}
+        public DateTime ExpirationDate { get; set;}
         public string SecurityCode { get; set; }
         public bool Default { get; set; }
         public int UserId { get; set; }

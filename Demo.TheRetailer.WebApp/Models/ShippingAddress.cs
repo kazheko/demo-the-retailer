@@ -8,7 +8,7 @@
         public string Phone { get; set; }
         public string Postcode { get; set; }
         public string AddressLine1 { get; set; }
-        public string AddressLine2 { get; set;}
+        public string? AddressLine2 { get; set;}
         public string City { get; set;}
         public bool Default { get; set; }
         public int UserId { get; set; }
