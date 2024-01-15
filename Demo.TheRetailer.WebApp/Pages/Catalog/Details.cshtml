@@ -21,7 +21,7 @@
                 <div class="col-md-5">
                     <img src="~/img/men/shirts-0001.jpg" alt="..." class="img-fluid" />
                 </div>
-                <div class="col-md-4">
+                <form method="post" class="col-md-4">
                     <h4>Skinny fit shirt in white</h4>
                     <p class="lead">£20.00</p>
                     <div class="alert alert-primary mb-5" role="alert">
@@ -57,17 +57,17 @@
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon1">
                                     <i class="bi bi-dash"></i>
                                 </button>
-                                <input style="width: 40px;" type="text" class="form-control text-center" aria-label="Example text with button addon" aria-describedby="button-addon1" value="1">
+                                <input style="width: 40px;" asp-for="Quantity" type="text" class="form-control text-center" value="1">
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">
                                     <i class="bi bi-plus"></i>
                                 </button>
                             </div>
                         </div>
+                        <dev class="col-auto">
+                            <button type="submit" class="btn btn-outline-primary">ADD TO BAG</button>
+                        </dev>
                         <div class="col-auto">
-                            <button type="button" class="btn btn-outline-primary">ADD TO BAG</button>
-                        </div>
-                        <div class="col-auto">
-                            <a href="~/checkout" type="button" class="btn btn-outline-primary">BUY NOW</a>
+                            <a href="#" type="button" class="btn btn-outline-primary">BUY NOW</a>
                         </div>
                     </div>
 
@@ -155,7 +155,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </section>

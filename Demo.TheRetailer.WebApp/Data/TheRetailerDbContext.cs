@@ -7,6 +7,7 @@ namespace Demo.TheRetailer.WebApp.Data
     {
         public DbSet<ShippingAddress> ShippingAddresses { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
 
         public string DbPath { get; }
 
@@ -23,6 +24,9 @@ namespace Demo.TheRetailer.WebApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Basket>();
+            modelBuilder.Entity<BasketItem>();
+
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
