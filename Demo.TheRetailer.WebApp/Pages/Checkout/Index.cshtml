@@ -26,7 +26,7 @@
                 <li class="list-group-item d-flex justify-content-between lh-sm">
                     <div>
                         <h6 class="my-0">Skinny fit shirt in white</h6>
-                        <small class="text-body-secondary">Brief description</small>
+                        <small class="text-body-secondary">Stretch, plain-woven fabric</small>
                     </div>
                     <span class="text-body-secondary">£18.99</span>
                 </li>
@@ -113,26 +113,19 @@
                     <div id="flush-collapseThree" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="list-group">
-                                <li class="list-group-item d-flex justify-content-between align-items-start">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                                    </div>
-                                    <div class="ms-2 me-auto">
-                                        <div class="fw-bold">Standard Delivery (XYZ Carrier 2Day)</div>
-                                        Estimated between @DateTime.Now.AddDays(2).ToString("D")
-                                    </div>
-                                    <span>£4.99</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-start">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                    </div>
-                                    <div class="ms-2 me-auto">
-                                        <div class="fw-bold">Expedited Delivery(ABC Carrier Next Day)</div>
-                                        Estimated between @DateTime.Now.AddDays(1).ToString("D")
-                                    </div>
-                                    <span>£6.99</span>
-                                </li>
+                                @foreach (var delivery in Model.DeliveryOptions)
+                                {
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" asp-for="DeliveryOption" value="@delivery">
+                                        </div>
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">@delivery.DeliveryType (@delivery.Carrier @delivery.CarrierService)</div>
+                                            Estimated between @DateTime.Now.AddDays(delivery.MinTransitTime).ToString("D") and @DateTime.Now.AddDays(delivery.MaxTransitTime).ToString("D")
+                                        </div>
+                                        <span>@delivery.Cost</span>
+                                    </li>
+                                }
                             </ul>
                         </div>
                     </div>
